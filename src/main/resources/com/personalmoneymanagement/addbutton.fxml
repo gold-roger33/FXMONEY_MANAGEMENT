@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="844.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="844.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalmoneymanagement.AddButtonController">
    <children>
       <Pane prefHeight="54.0" prefWidth="844.0" style="-fx-background-color: #313131;">
          <children>
@@ -42,7 +42,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="50.0" layoutY="230.0" prefWidth="200.0" style="-fx-background-color: #313131; -fx-text-fill: white;" />
+      <TextField fx:id="amountField" layoutX="50.0" layoutY="230.0" prefWidth="200.0" style="-fx-background-color: #313131; -fx-text-fill: white;" />
       
       <Text fill="WHITE" layoutX="50.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type (Name of Income/Expense):">
          <font>
@@ -63,7 +63,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="720.0" layoutY="500.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #f44336;" text="Cancel" textFill="WHITE">
+      <Button layoutX="720.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #f44336;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
