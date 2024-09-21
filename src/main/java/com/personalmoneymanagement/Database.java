@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
     
@@ -75,6 +77,25 @@ public class Database {
         System.out.println(e.getMessage());
         }
     }
+
+    public List<String> getLastFourTransactions() {
+    String sql = "SELECT transaction_type, amount ,name FROM transactions ORDER BY id DESC LIMIT 4";
+    List<String> transactions = new ArrayList<>();
+    
+    try (Connection conn = this.connect();
+         Statement stmt = conn.createStatement();
+         ResultSet rs = stmt.executeQuery(sql)) {
+        
+        while (rs.next()) {
+            String transaction = rs.getString("name") + ": " + rs.getDouble("amount");
+            transactions.add(transaction);
+        }
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+    }
+    
+    return transactions;
+}
 
 }
    

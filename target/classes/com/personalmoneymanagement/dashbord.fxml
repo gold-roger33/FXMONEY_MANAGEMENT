@@ -71,24 +71,30 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="346.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Groceries :">
+      <Text fx:id="transaction1" fill="WHITE" layoutX="346.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#f2f2f2" layoutX="346.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary :">
+      <Text fx:id="transaction2" fill="#f2f2f2" layoutX="346.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Line endX="129.0" layoutX="442.0" layoutY="161.0" startX="-100.0" stroke="#e4d9d9" strokeWidth="0.4" />
+      <Text fx:id="transaction3" fill="WHITE" layoutX="346.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="transaction4" fill="#f2f2f2" layoutX="350.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
       <Line endX="125.0" layoutX="443.0" layoutY="209.0" startX="-100.0" stroke="#e4d9d9" strokeWidth="0.4" />
-      <Text fill="WHITE" layoutX="346.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
+      <Line endX="129.0" layoutX="442.0" layoutY="161.0" startX="-100.0" stroke="#e4d9d9" strokeWidth="0.4" />
       <Line endX="125.0" layoutX="443.0" layoutY="263.0" startX="-100.0" stroke="#e4d9d9" strokeWidth="0.4" />
+      <Line endX="100.0" layoutX="468.0" layoutY="316.0" startX="-121.29998779296875" stroke="#e4d9d9" strokeWidth="0.4" />
       <ImageView fitHeight="90.0" fitWidth="98.0" layoutX="637.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@ASSETS/pie%20chart.png" />

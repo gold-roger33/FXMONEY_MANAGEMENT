@@ -8,17 +8,44 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.List;
 
 public class DashbordController {
     
+    @FXML
+    private Text transaction1;
+    @FXML
+    private Text transaction2;
+    @FXML
+    private Text transaction3;
+    @FXML
+    private Text transaction4;
+    
 
-    public void initialise(){
+    private Database db;
 
+    @FXML
+    public void initialize(){
+        db= new Database();
+        db.createTable();
+        showRecentTransactions();
     }
+
+    private void showRecentTransactions() {
+    List<String> transactions = db.getLastFourTransactions();
+    
+    // Display transactions in the UI
+    if (transactions.size() >= 1) transaction1.setText(transactions.get(0));
+    if (transactions.size() >= 2) transaction2.setText(transactions.get(1));
+    if (transactions.size() >= 3) transaction3.setText(transactions.get(2));
+    if (transactions.size() >= 4) transaction4.setText(transactions.get(3));
+}
+
 
     public void refeshandupdate(){
 
