@@ -20,9 +20,9 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <ImageView fitHeight="26.0" fitWidth="42.0" layoutX="23.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="26.0" fitWidth="42.0" layoutX="24.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ASSETS/Icon%20wallet.png" />
+                  <Image url="@../../fxml%20assets/Icon%20wallet.png" />
                </image>
             </ImageView>
             <Button layoutX="422.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: trans;" text="Dashboard" textFill="WHITE" />
@@ -100,9 +100,9 @@
          </image>
       </ImageView>
       <Circle fill="#313131" layoutX="751.0" layoutY="492.0" onMouseClicked="#handlePlusButtonClick" radius="45.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fitHeight="46.0" fitWidth="50.0" layoutX="731.0" layoutY="469.0" onMouseClicked="#handlePlusButtonClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="727.0" layoutY="465.0" onMouseClicked="#handlePlusButtonClick" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ASSETS/plus%20Icon.png" />
+            <Image url="@../../fxml%20assets/plus%20Icon.png" />
          </image>
       </ImageView>
    </children>
