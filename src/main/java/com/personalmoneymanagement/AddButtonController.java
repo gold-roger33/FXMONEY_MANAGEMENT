@@ -14,24 +14,52 @@ import javafx.stage.Stage;
 public class AddButtonController {
     
     @FXML
+    private Button incomeButton;
+    @FXML
+    private Button expenseButton;
+
+    @FXML
     private TextField amountField;
     
     @FXML
-    private TextField typTextField;
+    private TextField nameField;
 
     @FXML DatePicker datePicker;
 
-    @FXML
-    private void addIncome(){
 
-        System.out.println("Income added: " + amountField.getText());
+    @FXML 
+    private String transactionType = "Income";
+
+    Database db = new Database();
+
+    @FXML
+    private void initialize() {
+        db.createTable();
+        incomeButton.setOnMouseClicked(event -> transactionType = "Income");
+        expenseButton.setOnMouseClicked(event -> transactionType = "Expense");
     }
 
-    @FXML
-    private void addExpense(){
 
-        System.out.println("Expense added: " + amountField.getText());
+    @FXML
+    private void save(){
+        
+        String amount = amountField.getText();
+        String name = nameField.getText();
+        String date = datePicker.getValue().toString();
+
+       
+
+        double amountValue;
+        try {
+            amountValue = Double.parseDouble(amount);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid amount entered: " + e.getMessage());
+            return;
+        }
+
+        db.insertTransaction(transactionType, amountValue, name, date);
     }
+
 
     @FXML
     private void cancel() throws IOException{
