@@ -97,6 +97,22 @@ public class Database {
     return transactions;
 }
 
+    public double getTotalBalance(){
+        String balance = "SELECT SUM(CASE WHEN transaction_type = 'Income' THEN amount " +
+                 "WHEN transaction_type = 'Expense' THEN -amount ELSE 0 END) AS balance FROM transactions";
+    
+        try (Connection conn = this.connect();
+        Statement stmt = conn.createStatement();
+    
+        ResultSet rs = stmt.executeQuery(balance)) {    
+        if (rs.next()) {
+            return rs.getDouble("balance");
+        }
+        } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            return 0.0;
+        }
 }
    
 
