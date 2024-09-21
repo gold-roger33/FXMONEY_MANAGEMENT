@@ -3,7 +3,9 @@ package com.personalmoneymanagement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Database {
     
@@ -14,7 +16,7 @@ public class Database {
         try {
             conn = DriverManager.getConnection(DB_URL);
 
-            System.out.println("Table created");
+            System.out.println("Table created"+"\n");
         
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -52,5 +54,28 @@ public class Database {
         }
     }
 
-   
+    public void view(){
+        String viewSQL= "SELECT id,transaction_type,amount,name,date FROM transactions";
+
+        
+    try (
+        Connection conn = this.connect();
+        Statement stmt = conn.createStatement();
+        
+        ResultSet rs = stmt.executeQuery(viewSQL)){
+            while (rs.next()) {
+                System.out.println(rs.getInt("id")+"\t" +
+                rs.getString("transaction_type") + "\t" +
+                rs.getInt("amount") + "\t" +
+                rs.getString("name") + "\t" +
+                rs.getString("date")+ "\n");
+
+        }
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+        }
+    }
+
 }
+   
+

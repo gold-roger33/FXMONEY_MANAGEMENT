@@ -58,6 +58,7 @@ public class AddButtonController {
         }
 
         db.insertTransaction(transactionType, amountValue, name, date);
+        db.view();
     }
 
 
