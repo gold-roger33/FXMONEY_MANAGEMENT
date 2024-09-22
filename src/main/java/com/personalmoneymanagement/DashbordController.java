@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class DashbordController {
+
+    
+    private Database db;
     
     @FXML
     private Text transaction1;
@@ -27,14 +30,11 @@ public class DashbordController {
 
     @FXML
     private Text totalbalance;
-
     @FXML
     private Text savings;
-
     @FXML
-    private Text checking;
+    private Text expenses;
 
-    private Database db;
 
     @FXML
     public void initialize(){
@@ -57,10 +57,20 @@ public class DashbordController {
     private void updateAccountOverview(){
 
         double TotalBalanceValue = db.getTotalBalance();
+        double SavingsValue = db.getsavings();
+        double ExpenseValue = db.getExpense();
 
         totalbalance.setText("₹ "+ String.format("%.2f", TotalBalanceValue));
-        //System.out.println("TOTAL BALANCE IS \n"+totalbalance);
+        //System.out.println("TOTAL BALANCE IS \n"+TotalBalanceValue);
+
+        savings.setText("₹"+ String.format("%.2f", SavingsValue));
+        //System.out.println("TOTAL SAVINGS IS \t"+SavingsValue);
+    
+        expenses.setText("₹"+ String.format("-%.2f", ExpenseValue));
+        System.out.println("TOTAL SAVINGS IS \t"+  "-"+ExpenseValue);
+    
     }
+
 
     public void refeshandupdate(){
 

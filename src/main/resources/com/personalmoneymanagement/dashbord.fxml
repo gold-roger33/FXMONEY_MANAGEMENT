@@ -54,7 +54,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="34.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checking:">
+      <Text fill="WHITE" layoutX="34.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expenses">
          <font>
             <Font size="18.0" />
          </font>
@@ -121,7 +121,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="checking" fill="WHITE" layoutX="187.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="expenses" fill="WHITE" layoutX="187.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="18.0" />
          </font>

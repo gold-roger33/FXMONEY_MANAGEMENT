@@ -113,6 +113,40 @@ public class Database {
             }
             return 0.0;
         }
+
+    public double getsavings(){
+        String savings = "SELECT SUM(CASE WHEN transaction_type = 'Income' THEN amount " +
+                        "WHEN transaction_type = 'Expense' THEN -amount ELSE 0 END) AS savings FROM transactions";
+        try(Connection conn = this.connect();
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery(savings)){
+
+            if (rs.next()) {
+                return rs.getDouble("savings");
+            }
+            } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+                return 0.0;
+
+    }        
+
+    public double getExpense(){
+        String expense = "SELECT SUM(amount) AS expense FROM transactions WHERE transaction_type = 'Expense'";
+
+        try(Connection conn = this.connect();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(expense)
+        ) {
+            if (rs.next()) {
+                return rs.getDouble("expense");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0.0;
+    }
 }
-   
+
 
