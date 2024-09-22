@@ -25,17 +25,17 @@
                   <Image url="@../../fxml%20assets/Icon%20wallet.png" />
                </image>
             </ImageView>
-            <Button layoutX="422.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: trans;" text="Dashboard" textFill="WHITE" />
-            <Button layoutX="528.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: trans;" text="Accounts" textFill="WHITE" />
-            <Button layoutX="631.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: trans;" text="Transactions" textFill="WHITE" />
-            <Button layoutX="749.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: tra;" text="Settings" textFill="WHITE" />
+            <Button layoutX="422.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #313131;" text="Dashboard" textFill="WHITE" />
+            <Button layoutX="528.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #313131;" text="Accounts" textFill="WHITE" />
+            <Button layoutX="631.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #313131;" text="Transactions" textFill="WHITE" />
+            <Button layoutX="749.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #313131;" text="Settings" textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutY="557.0" prefHeight="45.0" prefWidth="844.0" style="-fx-background-color: #313131;">
          <children>
-            <Button layoutX="483.0" layoutY="7.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="70.0" style="-fx-background-color: trans;" text="Support" textFill="#fafafa" />
-            <Button layoutX="567.0" layoutY="7.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="106.0" style="-fx-background-color: trans;" text="Privacy Policy" textFill="WHITE" />
-            <Button layoutX="693.0" layoutY="7.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="124.0" style="-fx-background-color: trans;" text="Terms of Service" textFill="#f7f5f5" />
+            <Button layoutX="483.0" layoutY="7.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="70.0" style="-fx-background-color: #313131;" text="Support" textFill="#fafafa" />
+            <Button layoutX="567.0" layoutY="7.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="106.0" style="-fx-background-color: #313131;" text="Privacy Policy" textFill="WHITE" />
+            <Button layoutX="693.0" layoutY="7.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="124.0" style="-fx-background-color: #313131;" text="Terms of Service" textFill="#f7f5f5" />
          </children>
       </Pane>
       <Rectangle arcHeight="45.0" arcWidth="45.0" fill="#0b0b0b" height="152.0" layoutX="22.0" layoutY="87.0" stroke="#dfd2d2" strokeType="INSIDE" width="275.0" />

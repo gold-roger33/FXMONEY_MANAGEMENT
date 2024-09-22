@@ -67,7 +67,7 @@ public class DashbordController {
         //System.out.println("TOTAL SAVINGS IS \t"+SavingsValue);
     
         expenses.setText("₹"+ String.format("-%.2f", ExpenseValue));
-        System.out.println("TOTAL SAVINGS IS \t"+  "-"+ExpenseValue);
+        //System.out.println("TOTAL SAVINGS IS \t"+  "-"+ExpenseValue);
     
     }
 

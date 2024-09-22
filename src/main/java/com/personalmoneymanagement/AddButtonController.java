@@ -81,7 +81,7 @@ public class AddButtonController {
             
             Stage stage = (Stage) amountField.getScene().getWindow();
             
-            
+
             Scene scene = new Scene(dashboardScreen);
             stage.setScene(scene);
         } catch (IOException e) {
@@ -92,7 +92,7 @@ public class AddButtonController {
 
 
     @FXML
-    private void cancel() throws IOException{
+    private void cancel(){
         //System.out.println("Action canceled.");
 
          try {
