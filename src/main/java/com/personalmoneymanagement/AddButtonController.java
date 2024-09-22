@@ -74,21 +74,39 @@ public class AddButtonController {
 
         db.insertTransaction(transactionType, amountValue, name, date);
         db.view();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("dashbord.fxml"));
+            Parent dashboardScreen = loader.load();
+            
+            
+            Stage stage = (Stage) amountField.getScene().getWindow();
+            
+            
+            Scene scene = new Scene(dashboardScreen);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            System.out.println("Failed to load dashboard: " + e.getMessage());
+        }
+    
     }
 
 
     @FXML
     private void cancel() throws IOException{
-        System.out.println("Action canceled.");
+        //System.out.println("Action canceled.");
 
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("dashbord.fxml"));
-         Parent dashboardScreen = loader.load();
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("dashbord.fxml"));
+             Parent dashboardScreen = loader.load();
 
-         Stage stage = (Stage) amountField.getScene().getWindow();
-    
+             Stage stage = (Stage) amountField.getScene().getWindow();
+   
 
-         Scene scene = new Scene(dashboardScreen);
-         stage.setScene(scene);
+             Scene scene = new Scene(dashboardScreen);
+             stage.setScene(scene);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
          
 
     }
