@@ -1,9 +1,13 @@
 package com.personalmoneymanagement;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -35,6 +39,10 @@ public class DashbordController {
     @FXML
     private Text expenses;
 
+    @FXML 
+    private PieChart budgetPieChart;
+
+
 
     @FXML
     public void initialize(){
@@ -42,6 +50,7 @@ public class DashbordController {
         db.createTable();
         showRecentTransactions();
         updateAccountOverview();
+        loadPiechart();
     }
 
     private void showRecentTransactions() {
@@ -89,4 +98,26 @@ public class DashbordController {
         stage.setScene(scene);
         
     }
+    private void loadPiechart(){
+
+        List<Transaction> transactions = db.getTransactions(); // Fetch all transactions
+
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+
+        for (Transaction transaction : transactions) {
+           
+            
+            pieChartData.add(new PieChart.Data(transaction.getName() + " (" + transaction.getTransactionType() + ")", transaction.getAmount()));
+            String label = transaction.getName() + " (" + transaction.getTransactionType() + ")";
+            System.out.println("Adding to chart: " + label + " -> Amount: " + transaction.getAmount());
+            
+          
+        }
+
+        budgetPieChart.setData(pieChartData);
+       // budgetPieChart.setMinSize(400, 400); 
+
+    }
+
+   
 }

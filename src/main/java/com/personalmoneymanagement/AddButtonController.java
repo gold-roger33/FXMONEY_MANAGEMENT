@@ -74,6 +74,7 @@ public class AddButtonController {
 
         db.insertTransaction(transactionType, amountValue, name, date);
         db.view();
+        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("dashbord.fxml"));
             Parent dashboardScreen = loader.load();
@@ -87,6 +88,7 @@ public class AddButtonController {
         } catch (IOException e) {
             System.out.println("Failed to load dashboard: " + e.getMessage());
         }
+                
     
     }
 

@@ -132,6 +132,21 @@ public class Database {
 
     }        
 
+    public double getIncome(){
+        String income = "SELECT SUM(amount) AS income FROM transactions WHERE transaction_type = 'Income'";
+        try (Connection conn = this.connect();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(income);
+        ){
+            if (rs.next()) {
+                return rs.getDouble("income");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0.0;
+    }
+
     public double getExpense(){
         String expense = "SELECT SUM(amount) AS expense FROM transactions WHERE transaction_type = 'Expense'";
 
@@ -146,6 +161,28 @@ public class Database {
             System.out.println(e.getMessage());
         }
         return 0.0;
+    }
+
+    public List<Transaction> getTransactions() {
+        List<Transaction> transactions = new ArrayList<>();
+    
+        String query = "SELECT name, amount, transaction_type FROM transactions";
+        
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            
+            while (rs.next()) {
+                String name = rs.getString("name");
+                double amount = rs.getDouble("amount");
+                String type = rs.getString("transaction_type");
+                transactions.add(new Transaction(name, amount, type));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    
+        return transactions;
     }
 }
 
