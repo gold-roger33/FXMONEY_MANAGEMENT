@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="547.0" prefWidth="920.0" spacing="10" style="-fx-background-color: #161616;" styleClass="transactions-page" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalmoneymanagement.TransactionsController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <!-- Header Section -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" styleClass="page-title" text="Transactions" textFill="WHITE" />
+        <Region HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <!-- Filters Section -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <ComboBox fx:id="accountFilter" prefWidth="150" promptText="All Accounts" />
+        <ComboBox fx:id="categoryFilter" prefWidth="150" promptText="All Categories" />
+        <DatePicker fx:id="startDate" promptText="Start Date" />
+        <DatePicker fx:id="endDate" promptText="End Date" />
+        <TextField fx:id="searchField" promptText="Search transactions..." HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <!-- Transactions Table -->
+    <TableView fx:id="transactionsTable" style="-fx-background-color: #161616;" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateColumn" prefWidth="156.0" text="Date" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="222.00006103515625" text="Description" />
+            <TableColumn fx:id="categoryColumn" prefWidth="198.888916015625" text="Category" />
+            <TableColumn fx:id="amountColumn" prefWidth="158.44442749023438" text="Amount" />
+            <TableColumn fx:id="balanceColumn" prefWidth="182.2222900390625" text="Balance" />
+        </columns>
+    </TableView>
+</VBox>

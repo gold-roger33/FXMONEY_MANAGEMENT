@@ -113,8 +113,28 @@ public class DashbordController {
     }catch (IOException e) {
         System.err.println("Error loading settings page: " + e.getMessage());
         e.printStackTrace(); // This will help in identifying the issue
+        }
     }
-}
+
+    
+    @FXML
+    private void transactionsButtonClicked(MouseEvent event) {
+        try{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("transactionspage.fxml"));
+        Parent settingsScreen = loader.load();
+
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+        Scene scene = new Scene(settingsScreen);
+        stage.setScene(scene);
+        
+    }catch (IOException e) {
+        System.err.println("Error loading settings page: " + e.getMessage());
+        e.printStackTrace(); 
+        }
+    }
+
+
 
 
      private void loadPiechart(){
