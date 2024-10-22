@@ -42,9 +42,9 @@
     <TableView fx:id="transactionsTable" style="-fx-background-color: #161616;" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="dateColumn" prefWidth="196.88890838623047" sortable="false" text="Date" />
-            <TableColumn fx:id="nameColumn" prefWidth="193.55560302734375" text="Name" />
+            <TableColumn fx:id="nameColumn" prefWidth="193.55560302734375" sortable="false" text="Name" />
             <TableColumn fx:id="transactiontypeColumn" prefWidth="256.44439697265625" text="Transaction type" />
-            <TableColumn fx:id="amountColumn" prefWidth="222.888916015625" text="Amount" />
+            <TableColumn fx:id="amountColumn" prefWidth="222.888916015625" sortable="false" text="Amount" />
         </columns>
     </TableView>
 </VBox>
