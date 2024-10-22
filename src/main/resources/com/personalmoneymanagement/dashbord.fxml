@@ -117,7 +117,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <PieChart fx:id="budgetPieChart" layoutX="630.0" layoutY="133.0" prefHeight="175.0" prefWidth="182.0" style="-fx-background-color: trans;" />
+      <PieChart fx:id="budgetPieChart" layoutX="630.0" layoutY="133.0" prefHeight="175.0" prefWidth="182.0" style="-fx-background-color: #161616;" />
       <Text fx:id="tooltipText" fill="#fffdfd" layoutX="637.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="20.0" />

@@ -9,6 +9,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Database {
     
     private static final String DB_URL = "jdbc:sqlite:moneymanagement.db";
@@ -163,20 +167,22 @@ public class Database {
         return 0.0;
     }
 
+
     public List<Transaction> getTransactions() {
         List<Transaction> transactions = new ArrayList<>();
     
-        String query = "SELECT name, amount, transaction_type FROM transactions";
+        String query = "SELECT name, amount, transaction_type, date FROM transactions";
         
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             
             while (rs.next()) {
+                String date = rs.getString("date");
                 String name = rs.getString("name");
                 double amount = rs.getDouble("amount");
                 String type = rs.getString("transaction_type");
-                transactions.add(new Transaction(name, amount, type));
+                transactions.add(new Transaction(date,name, amount, type));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

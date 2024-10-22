@@ -50,7 +50,7 @@ public class DashbordController {
         db.createTable();
         showRecentTransactions();
         updateAccountOverview();
-       // loadPiechart();
+        //loadPiechart();
     }
 
     private void showRecentTransactions() {
