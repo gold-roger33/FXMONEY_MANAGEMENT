@@ -18,7 +18,7 @@ public class Database {
         try {
             conn = DriverManager.getConnection(DB_URL);
 
-            System.out.println("Table created"+"\n");
+           // System.out.println("Table created"+"\n");
         
         } catch (SQLException e) {
             System.out.println(e.getMessage());

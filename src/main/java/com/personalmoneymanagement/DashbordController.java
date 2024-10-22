@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -50,7 +50,7 @@ public class DashbordController {
         db.createTable();
         showRecentTransactions();
         updateAccountOverview();
-        loadPiechart();
+       // loadPiechart();
     }
 
     private void showRecentTransactions() {
@@ -98,7 +98,26 @@ public class DashbordController {
         stage.setScene(scene);
         
     }
-    private void loadPiechart(){
+    @FXML
+    private void settingsButtonClicked(MouseEvent event) {
+        try{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("settingspage.fxml"));
+        Parent settingsScreen = loader.load();
+
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+        Scene scene = new Scene(settingsScreen);
+        stage.setScene(scene);
+        
+    }catch (IOException e) {
+        System.err.println("Error loading settings page: " + e.getMessage());
+        e.printStackTrace(); // This will help in identifying the issue
+    }
+}
+
+
+     private void loadPiechart(){
 
         List<Transaction> transactions = db.getTransactions(); // Fetch all transactions
 
@@ -109,7 +128,7 @@ public class DashbordController {
             
             pieChartData.add(new PieChart.Data(transaction.getName() + " (" + transaction.getTransactionType() + ")", transaction.getAmount()));
             String label = transaction.getName() + " (" + transaction.getTransactionType() + ")";
-            System.out.println("Adding to chart: " + label + " -> Amount: " + transaction.getAmount());
+            //System.out.println("Adding to chart: " + label + " -> Amount: " + transaction.getAmount());
             
           
         }
@@ -118,6 +137,5 @@ public class DashbordController {
        // budgetPieChart.setMinSize(400, 400); 
 
     }
-
    
 }

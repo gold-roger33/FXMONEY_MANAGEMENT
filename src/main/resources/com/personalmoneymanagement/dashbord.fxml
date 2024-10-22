@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="844.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalmoneymanagement.DashbordController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="844.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalmoneymanagement.DashbordController">
    <children>
       <Pane prefHeight="54.0" prefWidth="844.0" style="-fx-background-color: #313131;">
          <children>
@@ -29,7 +29,7 @@
             <Button layoutX="422.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #313131;" text="Dashboard" textFill="WHITE" />
             <Button layoutX="528.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #313131;" text="Accounts" textFill="WHITE" />
             <Button layoutX="631.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: #313131;" text="Transactions" textFill="WHITE" />
-            <Button layoutX="749.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #313131;" text="Settings" textFill="WHITE" />
+            <Button layoutX="749.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#settingsButtonClicked" style="-fx-background-color: #313131;" text="Settings" textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutY="557.0" prefHeight="45.0" prefWidth="844.0" style="-fx-background-color: #313131;">
@@ -96,16 +96,6 @@
       <Line endX="129.0" layoutX="442.0" layoutY="161.0" startX="-100.0" stroke="#e4d9d9" strokeWidth="0.4" />
       <Line endX="125.0" layoutX="443.0" layoutY="263.0" startX="-100.0" stroke="#e4d9d9" strokeWidth="0.4" />
       <Line endX="100.0" layoutX="468.0" layoutY="316.0" startX="-121.29998779296875" stroke="#e4d9d9" strokeWidth="0.4" />
-      <ImageView fitHeight="90.0" fitWidth="98.0" layoutX="637.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@ASSETS/pie%20chart.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="90.0" fitWidth="116.0" layoutX="637.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@ASSETS/histogram%20chart.png" />
-         </image>
-      </ImageView>
       <Circle fill="#313131" layoutX="751.0" layoutY="492.0" onMouseClicked="#handlePlusButtonClick" radius="45.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="727.0" layoutY="465.0" onMouseClicked="#handlePlusButtonClick" pickOnBounds="true" preserveRatio="true">
          <image>
