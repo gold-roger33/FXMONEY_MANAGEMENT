@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -121,5 +122,6 @@
             <Font size="20.0" />
          </font>
       </Text>
+      <PieChart fx:id="budgetPieChart" layoutX="622.0" layoutY="97.0" prefHeight="224.0" prefWidth="187.0" AnchorPane.rightAnchor="22.0" />
    </children>
 </AnchorPane>

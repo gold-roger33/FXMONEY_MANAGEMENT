@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -50,7 +51,14 @@ public class DashbordController {
         db.createTable();
         showRecentTransactions();
         updateAccountOverview();
-        //loadPiechart();
+        loadPiechart();
+
+        /*  ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+            new PieChart.Data("Income", 40),
+            new PieChart.Data("Expenses", 60)
+        );
+        budgetPieChart.setData(pieChartData); */ 
+
     }
 
     private void showRecentTransactions() {
@@ -145,16 +153,38 @@ public class DashbordController {
 
         for (Transaction transaction : transactions) {
            
+            PieChart.Data data = new PieChart.Data(transaction.getName() + transaction.getTransactionType() , transaction.getAmount());
+            System.out.println(data);
+            pieChartData.add(data);
             
-            pieChartData.add(new PieChart.Data(transaction.getName() + " (" + transaction.getTransactionType() + ")", transaction.getAmount()));
+
+            /*pieChartData.add(new PieChart.Data(transaction.getName() + " (" + transaction.getTransactionType() + ")", transaction.getAmount()));
             String label = transaction.getName() + " (" + transaction.getTransactionType() + ")";
             //System.out.println("Adding to chart: " + label + " -> Amount: " + transaction.getAmount());
-            
+            */
           
         }
 
         budgetPieChart.setData(pieChartData);
-       // budgetPieChart.setMinSize(400, 400); 
+        budgetPieChart.setLabelsVisible(false);
+        budgetPieChart.setLegendVisible(false);
+         
+
+        budgetPieChart.getData().forEach(data -> {
+            String transactionType = data.getName().contains("Income") ? "Income" : "Expense";
+            String label = data.getName() + " - " + transactionType + ": ₹" + String.format("%.2f", data.getPieValue());
+    
+           
+            Tooltip tooltip = new Tooltip(label);
+            Tooltip.install(data.getNode(), tooltip);
+
+
+            
+    
+            // Add hover effect
+            data.getNode().setOnMouseEntered(event -> data.getNode().setStyle("-fx-opacity: 0.7;"));
+            data.getNode().setOnMouseExited(event -> data.getNode().setStyle("-fx-opacity: 1;"));
+        });
 
     }
    
