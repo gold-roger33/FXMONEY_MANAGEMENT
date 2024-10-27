@@ -30,12 +30,11 @@
     </HBox>
 
     <!-- Filters Section -->
-    <HBox alignment="CENTER_LEFT" spacing="10">
-        <ComboBox fx:id="accountFilter" prefWidth="150" promptText="All Accounts" />
-        <ComboBox fx:id="categoryFilter" prefWidth="150" promptText="All Categories" />
-        <DatePicker fx:id="startDate" promptText="Start Date" />
-        <DatePicker fx:id="endDate" promptText="End Date" />
-        <TextField fx:id="searchField" promptText="Search transactions..." HBox.hgrow="ALWAYS" />
+    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="761.0" spacing="10">
+        <ComboBox fx:id="categoryfilter" prefHeight="25.0" prefWidth="167.0" promptText="All Categories" />
+        <DatePicker fx:id="startDate" prefHeight="25.0" prefWidth="184.0" promptText="Start Date" />
+        <DatePicker fx:id="endDate" prefHeight="25.0" prefWidth="194.0" promptText="End Date" />
+        <TextField fx:id="searchField" prefHeight="25.0" prefWidth="206.0" promptText="Search transactions..." HBox.hgrow="ALWAYS" />
     </HBox>
 
     <!-- Transactions Table -->

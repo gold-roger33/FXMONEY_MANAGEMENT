@@ -166,6 +166,58 @@ public class Database {
         }
         return 0.0;
     }
+    
+    
+    public List<Transaction> getFilteredTransactions(String type, String startDate, String endDate, String searchText) {
+        List<Transaction> transactions = new ArrayList<>();
+        StringBuilder query = new StringBuilder("SELECT name, amount, transaction_type, date FROM transactions WHERE 1=1");
+        
+        if (type != null && !type.isEmpty() && !type.equals("All")) {
+            query.append(" AND transaction_type = ?");
+        }
+        if (startDate != null && !startDate.isEmpty()) {
+            query.append(" AND date >= ?");
+        }
+        if (endDate != null && !endDate.isEmpty()) {
+            query.append(" AND date <= ?");
+        }
+        if (searchText != null && !searchText.isEmpty()) {
+            query.append(" AND name LIKE ?");
+        }
+
+
+        try (Connection conn = this.connect();
+        PreparedStatement pstmt = conn.prepareStatement(query.toString())) {
+       
+       int paramIndex = 1;
+
+       if (type != null && !type.isEmpty() && !type.equals("All")) {
+           pstmt.setString(paramIndex++, type);
+       }
+       if (startDate != null && !startDate.isEmpty()) {
+           pstmt.setString(paramIndex++, startDate);
+       }
+       if (endDate != null && !endDate.isEmpty()) {
+           pstmt.setString(paramIndex++, endDate);
+       }
+       if (searchText != null && !searchText.isEmpty()) {
+           pstmt.setString(paramIndex, "%" + searchText + "%");
+       }
+
+       ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            String date = rs.getString("date");
+            String name = rs.getString("name");
+            double amount = rs.getDouble("amount");
+            String transactionType = rs.getString("transaction_type");
+            transactions.add(new Transaction(date, name, amount, transactionType));
+        }
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+    }
+    return transactions;
+}
+    
 
 
     public List<Transaction> getTransactions() {
