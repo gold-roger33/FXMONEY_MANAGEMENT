@@ -153,15 +153,13 @@ public class DashbordController {
 
         for (Transaction transaction : transactions) {
            
-            PieChart.Data data = new PieChart.Data(transaction.getName() + transaction.getTransactionType() , transaction.getAmount());
-            System.out.println(data);
+            PieChart.Data data = new PieChart.Data(transaction.getName() + "  " +
+             transaction.getTransactionType() +" " , 
+             transaction.getAmount());
+            
+             System.out.println(data);
             pieChartData.add(data);
             
-
-            /*pieChartData.add(new PieChart.Data(transaction.getName() + " (" + transaction.getTransactionType() + ")", transaction.getAmount()));
-            String label = transaction.getName() + " (" + transaction.getTransactionType() + ")";
-            //System.out.println("Adding to chart: " + label + " -> Amount: " + transaction.getAmount());
-            */
           
         }
 
@@ -171,8 +169,8 @@ public class DashbordController {
          
 
         budgetPieChart.getData().forEach(data -> {
-            String transactionType = data.getName().contains("Income") ? "Income" : "Expense";
-            String label = data.getName() + " - " + transactionType + ": ₹" + String.format("%.2f", data.getPieValue());
+          //  String transactionType = data.getName().contains("Income") ? "Income" : "Expense";
+            String label = data.getName() +  ": ₹" + String.format("%.2f", data.getPieValue());
     
            
             Tooltip tooltip = new Tooltip(label);
