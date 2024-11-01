@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -43,6 +45,16 @@ public class DashbordController {
     @FXML 
     private PieChart budgetPieChart;
 
+    @FXML
+    private Rectangle accountOverview;
+
+    @FXML 
+    private Rectangle recentTransactions;
+
+    @FXML
+    private Rectangle budgetAnalysis;
+
+
 
 
     @FXML
@@ -53,11 +65,24 @@ public class DashbordController {
         updateAccountOverview();
         loadPiechart();
 
-        /*  ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-            new PieChart.Data("Income", 40),
-            new PieChart.Data("Expenses", 60)
-        );
-        budgetPieChart.setData(pieChartData); */ 
+        accountOverview.setOnMouseEntered(event -> 
+        accountOverview.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 2.5;"));
+        
+        accountOverview.setOnMouseExited(event -> 
+        accountOverview.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 1;"));
+
+        recentTransactions.setOnMouseEntered(event ->
+        recentTransactions.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 2.5;"));      
+
+        recentTransactions.setOnMouseExited(event ->
+        recentTransactions.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 1;")); 
+        
+        budgetPieChart.setOnMouseEntered(event ->
+        budgetAnalysis.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 2.5;"));      
+
+        budgetPieChart.setOnMouseExited(event ->
+        budgetAnalysis.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 1;")); 
+
 
     }
 

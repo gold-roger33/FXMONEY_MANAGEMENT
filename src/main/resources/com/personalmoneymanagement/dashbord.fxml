@@ -39,7 +39,7 @@
             <Button layoutX="693.0" layoutY="7.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="124.0" style="-fx-background-color: #313131;" text="Terms of Service" textFill="#f7f5f5" />
          </children>
       </Pane>
-      <Rectangle arcHeight="45.0" arcWidth="45.0" fill="#0b0b0b" height="152.0" layoutX="22.0" layoutY="87.0" stroke="#dfd2d2" strokeType="INSIDE" width="275.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="547.0" AnchorPane.topAnchor="86.0" />
+      <Rectangle fx:id="accountOverview" arcHeight="45.0" arcWidth="45.0" fill="#0b0b0b" height="152.0" layoutX="22.0" layoutY="87.0" stroke="#dfd2d2" strokeType="INSIDE" width="275.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="547.0" AnchorPane.topAnchor="86.0" />
       <Text fill="WHITE" layoutX="31.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Overview" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="621.3932291666666">
          <font>
             <Font size="24.0" />
@@ -60,13 +60,13 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0b0b0b" height="264.0" layoutX="338.0" layoutY="88.0" stroke="#dfd2d2" strokeType="INSIDE" width="238.0" AnchorPane.rightAnchor="268.0" />
+      <Rectangle fx:id="recentTransactions" arcHeight="10.0" arcWidth="10.0" fill="#0b0b0b" height="264.0" layoutX="338.0" layoutY="88.0" stroke="#dfd2d2" strokeType="INSIDE" width="238.0" AnchorPane.rightAnchor="268.0" />
       <Text fill="WHITE" layoutX="352.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent Transactions" AnchorPane.rightAnchor="281.203125">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b0b0b" height="245.0" layoutX="625.0" layoutY="86.0" stroke="#dfd2d2" strokeType="INSIDE" width="191.0" AnchorPane.rightAnchor="28.0" />
+      <Rectangle fx:id="budgetAnalysis" arcHeight="5.0" arcWidth="5.0" fill="#0b0b0b" height="245.0" layoutX="625.0" layoutY="86.0" stroke="#dfd2d2" strokeType="INSIDE" width="191.0" AnchorPane.rightAnchor="28.0" />
       <Text fill="#fafafa" layoutX="637.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Analysis" AnchorPane.rightAnchor="67.21484375">
          <font>
             <Font size="20.0" />
