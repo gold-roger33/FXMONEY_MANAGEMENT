@@ -4,21 +4,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
 import java.io.IOException;
 import java.util.List;
+import java.io.File;
 
 public class DashbordController {
 
@@ -54,6 +58,9 @@ public class DashbordController {
     @FXML
     private Rectangle budgetAnalysis;
 
+    @FXML
+    private ImageView avatarImageView;
+
 
 
 
@@ -65,26 +72,41 @@ public class DashbordController {
         updateAccountOverview();
         loadPiechart();
 
-        accountOverview.setOnMouseEntered(event -> 
-        accountOverview.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 2.5;"));
+        avatarImageView.setOnMouseClicked(event -> openImageChooser());
         
-        accountOverview.setOnMouseExited(event -> 
-        accountOverview.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 1;"));
-
-        recentTransactions.setOnMouseEntered(event ->
-        recentTransactions.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 2.5;"));      
-
-        recentTransactions.setOnMouseExited(event ->
-        recentTransactions.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 1;")); 
+        addHoverEffect(accountOverview, "#dfd2d2", 2.5,
+                         1);
+        addHoverEffect(recentTransactions, "#dfd2d2", 2.5,
+                         1);
+        addHoverEffect(budgetPieChart, "#dfd2d2", 2.5,
+                         1);
+        addHoverEffectForPieChartAndAnalysis(budgetPieChart, budgetAnalysis, "#dfd2d2", 
+                         2.5, 1);
+    
         
-        budgetPieChart.setOnMouseEntered(event ->
-        budgetAnalysis.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 2.5;"));      
-
-        budgetPieChart.setOnMouseExited(event ->
-        budgetAnalysis.setStyle("-fx-stroke: #dfd2d2; -fx-stroke-width: 1;")); 
-
-
     }
+
+    
+
+    private void addHoverEffect(Node node, String strokeColor, double hoverStrokeWidth, double defaultStrokeWidth)
+    {
+    node.setOnMouseEntered(event -> node.setStyle("-fx-stroke: " + strokeColor + "; -fx-stroke-width: " + hoverStrokeWidth + ";"));
+    node.setOnMouseExited(event -> node.setStyle("-fx-stroke: " + strokeColor + "; -fx-stroke-width: " + defaultStrokeWidth + ";"));
+    }
+
+    private void addHoverEffectForPieChartAndAnalysis(Node pieChart, Node analysis, String strokeColor, double hoverStrokeWidth, double defaultStrokeWidth) 
+    {
+        pieChart.setOnMouseEntered(event -> {
+            pieChart.setStyle("-fx-stroke: " + strokeColor + "; -fx-stroke-width: " + hoverStrokeWidth + ";");
+            analysis.setStyle("-fx-stroke: " + strokeColor + "; -fx-stroke-width: " + hoverStrokeWidth + ";");
+        });
+        
+        pieChart.setOnMouseExited(event -> {
+            pieChart.setStyle("-fx-stroke: " + strokeColor + "; -fx-stroke-width: " + defaultStrokeWidth + ";");
+            analysis.setStyle("-fx-stroke: " + strokeColor + "; -fx-stroke-width: " + defaultStrokeWidth + ";");
+        });
+    }
+
 
     private void showRecentTransactions() {
     List<String> transactions = db.getLastFourTransactions();
@@ -120,7 +142,7 @@ public class DashbordController {
 
     @FXML
     private void handlePlusButtonClick(MouseEvent event) throws IOException {
-        // Load the FXML file for the add screen
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addbutton.fxml"));
         Parent addScreen = loader.load();
 
@@ -145,7 +167,7 @@ public class DashbordController {
         
     }catch (IOException e) {
         System.err.println("Error loading settings page: " + e.getMessage());
-        e.printStackTrace(); // This will help in identifying the issue
+        e.printStackTrace(); 
         }
     }
 
@@ -202,13 +224,44 @@ public class DashbordController {
             Tooltip.install(data.getNode(), tooltip);
 
 
-            
-    
-            // Add hover effect
             data.getNode().setOnMouseEntered(event -> data.getNode().setStyle("-fx-opacity: 0.7;"));
             data.getNode().setOnMouseExited(event -> data.getNode().setStyle("-fx-opacity: 1;"));
         });
 
     }
-   
+
+    private void openImageChooser() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        
+        );
+
+         File selectedFile = fileChooser.showOpenDialog(avatarImageView.getScene().getWindow());
+        if (selectedFile != null) {
+            
+            Image avatarImage = new Image(selectedFile.toURI().toString());
+            avatarImageView.setImage(avatarImage);
+
+            adjustAvatarImage(avatarImage);
+
+        }
+
+    }
+    private void adjustAvatarImage(Image avatarImage) {
+        
+
+        double desiredHeight = 50; 
+        double desiredWidth = desiredHeight * (avatarImage.getWidth() / avatarImage.getHeight());
+
+        avatarImageView.setFitWidth(desiredWidth);
+        avatarImageView.setFitHeight(desiredHeight);
+        avatarImageView.setPreserveRatio(true);
+
+
+        Circle clip = new Circle(desiredHeight / 2);
+        clip.setCenterX(desiredHeight / 2);
+        clip.setCenterY(desiredHeight / 2);
+        avatarImageView.setClip(clip);
+    }
 }
