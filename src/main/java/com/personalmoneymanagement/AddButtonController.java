@@ -52,6 +52,13 @@ public class AddButtonController {
             incomeButton.setStyle("-fx-background-color: #4CAF50; -fx-border-color: transparent; ");
             expenseButton.setStyle("-fx-background-color: #D32F2F; -fx-border-color: #FFFFFF; ");
         });
+
+        amountField.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.matches("\\d*(\\.\\d*)?")) {
+                amountField.setText(oldValue); 
+            }
+        });
     } 
 
 

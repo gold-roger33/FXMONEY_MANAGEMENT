@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="544.0" prefWidth="844.0" spacing="10" style="-fx-background-color: #161616;" styleClass="transactions-page" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalmoneymanagement.TransactionsController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <!-- Header Section -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" styleClass="page-title" text="Transactions" textFill="WHITE" />
+        <Region HBox.hgrow="ALWAYS" />
+      <Button mnemonicParsing="false" onMouseClicked="#dashbordButtonClicked" style="-fx-background-color: #1d0505;" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.666666984558105" />
+         </font>
+      </Button>
+    </HBox>
+
+    <!-- Filters Section -->
+    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="761.0" spacing="10">
+        <ComboBox fx:id="categoryfilter" prefHeight="25.0" prefWidth="167.0" promptText="All Categories" />
+        <DatePicker fx:id="startDate" prefHeight="25.0" prefWidth="184.0" promptText="Start Date" />
+        <DatePicker fx:id="endDate" prefHeight="25.0" prefWidth="194.0" promptText="End Date" />
+        <TextField fx:id="searchField" prefHeight="25.0" prefWidth="206.0" promptText="Search transactions..." HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <!-- Transactions Table -->
+    <TableView fx:id="transactionsTable" style="-fx-background-color: #161616;" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateColumn" prefWidth="196.88890838623047" sortable="false" text="Date" />
+            <TableColumn fx:id="nameColumn" prefWidth="193.55560302734375" sortable="false" text="Name" />
+            <TableColumn fx:id="transactiontypeColumn" prefWidth="256.44439697265625" text="Transaction type" />
+            <TableColumn fx:id="amountColumn" prefWidth="222.888916015625" sortable="false" text="Amount" />
+        </columns>
+    </TableView>
+</VBox>
