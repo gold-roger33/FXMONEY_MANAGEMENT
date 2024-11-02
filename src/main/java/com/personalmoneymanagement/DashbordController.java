@@ -7,12 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -82,7 +84,7 @@ public class DashbordController {
                          1);
         addHoverEffectForPieChartAndAnalysis(budgetPieChart, budgetAnalysis, "#dfd2d2", 
                          2.5, 1);
-    
+        
         
     }
 
@@ -141,16 +143,34 @@ public class DashbordController {
     }
 
     @FXML
-    private void handlePlusButtonClick(MouseEvent event) throws IOException {
+    private void handlePlusButtonClick(MouseEvent event) {
 
+        try {
+            
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addbutton.fxml"));
         Parent addScreen = loader.load();
 
-        // Get the current stage
         Stage stage = (Stage) ((ImageView) event.getSource()).getScene().getWindow();
-        // Set the new scene
+
         Scene scene = new Scene(addScreen);
         stage.setScene(scene);
+        } 
+        catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        
+        catch (ClassCastException e) {
+            System.err.println(" Loading addbutton.fxml as fallback.");
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("addbutton.fxml"));
+                Parent addScreen = loader.load();
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(addScreen);
+                stage.setScene(scene);
+            } catch (IOException ex) {
+                System.err.println("Error loading fallback addbutton.fxml: " + ex.getMessage());
+            }
+        }
         
     }
     @FXML
