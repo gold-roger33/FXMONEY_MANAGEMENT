@@ -45,7 +45,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="34.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings: " AnchorPane.leftAnchor="31.333333333333332" AnchorPane.rightAnchor="621.3932291666666">
+      <Text fill="WHITE" layoutX="34.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income: " AnchorPane.leftAnchor="31.333333333333332" AnchorPane.rightAnchor="621.3932291666666">
          <font>
             <Font size="18.0" />
          </font>
@@ -70,12 +70,12 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="transaction1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="asdahsda" wrappingWidth="206.25000000000006" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="130.0">
+      <Text fx:id="transaction1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Null" wrappingWidth="206.25000000000006" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="130.0">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="transaction2" fill="#f2f2f2" strokeType="OUTSIDE" strokeWidth="0.0" text="asdas" wrappingWidth="206.25000000000006" AnchorPane.rightAnchor="279.0" AnchorPane.topAnchor="175.0">
+      <Text fx:id="transaction2" fill="#f2f2f2" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="206.25000000000006" AnchorPane.rightAnchor="279.0" AnchorPane.topAnchor="175.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -105,7 +105,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="savings" fill="WHITE" layoutX="184.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="662.0">
+      <Text fx:id="income" fill="WHITE" layoutX="184.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="662.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -131,9 +131,14 @@
       </LineChart>
       <HBox alignment="CENTER_RIGHT" layoutX="352.0" prefWidth="557.0" spacing="20.0" style="-fx-background-color: #313131;" AnchorPane.rightAnchor="-1.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#settingsButtonClicked" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: #313131;" text="Settings" textFill="WHITE" />
-            <Button mnemonicParsing="false" style="-fx-background-color: #313131;" text="Dashboard" textFill="WHITE" />
-            <Button mnemonicParsing="false" onMouseClicked="#transactionsButtonClicked" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #313131;" text="Transactions" textFill="WHITE" />
+            <Button mnemonicParsing="false" style="-fx-background-color: #313131;" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onMouseClicked="#transactionsButtonClicked" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #313131;" text="Transactions" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <ImageView fx:id="avatarImageView" fitHeight="58.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" y="1.5">
       
                                              <image>

@@ -17,11 +17,13 @@ public class AddButtonController {
     @FXML
     private Button expenseButton;
 
-    @FXML
-    private TextField amountField;
     
     @FXML
     private TextField nameField;
+    
+    @FXML
+    private TextField amountField;
+    
 
     @FXML DatePicker datePicker;
 

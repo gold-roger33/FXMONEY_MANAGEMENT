@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="844.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalmoneymanagement.AddButtonController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="844.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalmoneymanagement.AddButtonController">
    <children>
       <Pane prefHeight="54.0" prefWidth="844.0" style="-fx-background-color: #313131;">
          <children>
@@ -36,19 +36,19 @@
          </font>
       </Button>
       
-      <Text fill="WHITE" layoutX="50.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:">
+      <Text fill="WHITE" layoutX="50.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="amountField" layoutX="50.0" layoutY="230.0" prefWidth="200.0" style="-fx-background-color: #313131; -fx-text-fill: white;" />
+      <TextField fx:id="amountField" layoutX="50.0" layoutY="310.0" prefWidth="200.0" style="-fx-background-color: #313131; -fx-text-fill: white;" />
       
-      <Text fill="WHITE" layoutX="50.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name (Name of Income/Expense):">
+      <Text fill="WHITE" layoutX="50.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name (Name of Income/Expense):">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="nameField" layoutX="50.0" layoutY="310.0" prefWidth="300.0" style="-fx-background-color: #313131; -fx-text-fill: white;" />
+      <TextField fx:id="nameField" layoutX="50.0" layoutY="230.0" prefWidth="300.0" style="-fx-background-color: #313131; -fx-text-fill: white;" />
       
       <Text fill="WHITE" layoutX="50.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
          <font>

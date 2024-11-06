@@ -42,7 +42,7 @@ public class DashbordController {
     @FXML
     private Text totalbalance;
     @FXML
-    private Text savings;
+    private Text income;
     @FXML
     private Text expenses;
 
@@ -121,13 +121,13 @@ public class DashbordController {
     private void updateAccountOverview(){
 
         double TotalBalanceValue = db.getTotalBalance();
-        double SavingsValue = db.getsavings();
+        double IncomeValue = db.getIncome(); /////////////////00000
         double ExpenseValue = db.getExpense();
 
         totalbalance.setText("₹ "+ String.format("%.2f", TotalBalanceValue));
         //System.out.println("TOTAL BALANCE IS \n"+TotalBalanceValue);
 
-        savings.setText("₹"+ String.format("%.2f", SavingsValue));
+        income.setText("₹"+ String.format("%.2f", IncomeValue));
         //System.out.println("TOTAL SAVINGS IS \t"+SavingsValue);
     
         expenses.setText("₹"+ String.format("-%.2f", ExpenseValue));
@@ -135,10 +135,6 @@ public class DashbordController {
     
     }
 
-
-    public void refeshandupdate(){
-
-    }
 
     @FXML
     private void handlePlusButtonClick(MouseEvent event) {
