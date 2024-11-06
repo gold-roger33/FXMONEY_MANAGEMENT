@@ -70,7 +70,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="transaction1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Null" wrappingWidth="206.25000000000006" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="130.0">
+      <Text fx:id="transaction1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="206.25000000000006" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="130.0">
          <font>
             <Font size="18.0" />
          </font>
